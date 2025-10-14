@@ -297,7 +297,7 @@ class CityRev1RadixTree(RadixTree):
 
             nets = [IPNetwork(row['network'])]
             country_iso_code = location['country_iso_code'] or location['continent_code']
-            if location['subdivision_1_iso_code'] != "":
+            if country_iso_code == "US" and location['subdivision_1_iso_code'] != "":
                 fips_code = location['subdivision_1_iso_code']
             else:
                 fips_code = geoname2fips.get(location['geoname_id'])
